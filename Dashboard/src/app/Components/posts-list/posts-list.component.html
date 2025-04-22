@@ -1,0 +1,159 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-md-block col-md-3 col-lg-2 p-0">
+      <app-sidebar></app-sidebar>
+    </div>
+    <div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="mobileSidebar">
+      <div class="offcanvas-body p-0">
+        <app-sidebar>
+        </app-sidebar>
+      </div>
+    </div>
+
+    <main class="col-12 col-md-9 col-lg-10 p-0" style="background-color: #F5F6FA;">
+        <app-navbar></app-navbar>
+
+      <div class="align-items-center mb-3 px-4">
+        <h3>{{ 'posts.postsList' | translate }}</h3>
+        <div class="d-flex flex-column flex-md-row gap-2 justify-content-between mb-3">
+          <div class="d-flex align-items-center border rounded shadow-sm px-2 py-2" style="width: fit-content; border-color: #e2e3e5;">
+              <div class="p-3 border-end">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-funnel" viewBox="0 0 16 16">
+                  <path d="M1.5 1.5A.5.5 0 0 1 2 1h12a.5.5 0 0 1 .39.812l-4.61 5.49V14a.5.5 0 0 1-.276.447l-3 1.5A.5.5 0 0 1 6 15.5v-8.2L1.61 1.812A.5.5 0 0 1 1.5 1.5z"/>
+                </svg>
+              </div>
+            
+              <div class="px-3 py-2 border-end">
+                <span class="text-muted fw-medium small">{{ 'posts.filterby' | translate }}</span>
+              </div>
+            
+              <div class="px-3 py-2 border-end position-relative " >
+                <a class="text-muted fw-medium small  text-decoration-none" role="button" (click)="toggleUserIdCard()">
+                  {{ 'posts.userId' | translate }}
+                </a>
+                <div *ngIf="showUserIdCard" class="position-absolute bg-white p-4 rounded-4 shadow-sm justify-content-center" style="top: 130%; left: 0; width: 350px; z-index: 1000; height: 220px;">
+                  <h6 class="fw-bold mb-4">{{ 'posts.selectId' | translate }}</h6>
+                  <input type="text" class="form-control mb-4 mt-3" placeholder="{{ 'posts.search' | translate }}" [(ngModel)]="searchUserId" />
+                  <button class="btn btn-primary w-50 mx-auto d-block" (click)="applyUserIdFilter()">{{ 'posts.apply' | translate }}</button>
+               </div>
+              </div>
+            
+              <div class="px-3 py-2" (click)="ResetFilter()">
+                <a  class="text-danger text-decoration-none d-flex align-items-center gap-1 small fw-semibold" style="cursor: pointer;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-counterclockwise" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 1-4.546 2.914.5.5 0 1 1 .908-.417A4 4 0 1 0 8 4V1.5a.5.5 0 0 1 1 0v3A.5.5 0 0 1 8.5 5H5a.5.5 0 0 1 0-1h2.5V3z"/>
+                  </svg>
+                  {{ 'posts.reset' | translate }}
+                </a>
+              </div>
+            </div>
+          
+            <div routerLink="/posts/add" class="border rounded px-3 py-3  d-flex align-items-center justify-content-center" 
+                 style="background-color:#FFFFFF;  min-width: 100px; cursor: pointer;">
+              ➕  {{ 'posts.add' | translate }}
+            </div>
+          </div>
+        </div>
+          
+
+      <div class="px-4">
+        <div class="table-wrapper bg-white rounded shadow-sm border table-responsive">
+          <table class="table table-hover no-vertical-borders m-0">
+            <thead class="custom-thead">
+              <tr>
+                <th>{{ 'posts.id' | translate }}</th>
+                <th>{{ 'posts.userId' | translate }}</th>
+                <th>{{ 'posts.title' | translate }}</th>
+                <th>{{ 'posts.body' | translate }}</th>
+                <th>{{ 'posts.action' | translate }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let post of paginatedPosts">
+                <td>{{ post.id }}</td>
+                <td>{{ post.userId }}</td>
+                <td>{{ truncate(post.title , 30) }}</td>
+                <td>{{ truncate(post.body , 30) }}</td>
+                <td>
+                  <div class="btn-group" role="group" aria-label="Edit and Delete" style="background-color: #FAFBFD;">
+                    <button routerLink="/posts/edit/{{ post.id }}" class="btn btn-outline-secondary">
+                      <i class="fa-regular fa-pen-to-square"></i>
+                    </button>
+                    <button class="btn btn-outline-secondary"
+                            data-bs-toggle="modal"
+                            data-bs-target="#deleteModal"
+                            (click)="confirmDelete(post.id)">
+                            <i class="fa-regular fa-trash-can text-danger"></i>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+    
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mt-3 px-2 px-md-4" *ngIf="!searchUserId">
+        <div>
+          {{ 'posts.pagination' | translate }} {{ rangeStart }}–{{ rangeEnd }} of {{ posts.length }}
+        </div>
+        <div class="d-flex justify-content-center me-2 mb-2">
+          <div class="btn-group" role="group" aria-label="Pagination arrows">
+            <button type="button" class="btn btn-outline-secondary" (click)="prevPage()">
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button type="button" class="btn btn-outline-secondary" (click)="nextPage()">
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1080">
+  <div
+    #toastEl
+    class="toast align-items-center text-bg-info border-0"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+  >
+    <div class="d-flex">
+      <div class="toast-body">
+        {{ toastMessage }}
+        <button class="btn btn-sm btn-light ms-3" (click)="sendReply()">{{ 'posts.reply' | translate }}</button>
+      </div>
+      <button
+        type="button"
+        class="btn-close btn-close-white me-2 m-auto"
+        data-bs-dismiss="toast"
+        aria-label="Close"
+      ></button>
+    </div>
+  </div>
+</div>
+
+ <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-4 rounded-4">
+        <div class="modal-header border-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body ms-5" style="font-family: 'Nunito Sans', sans-serif; font-weight: 600; font-size: 17px;">
+          <i class="fa-solid fa-circle-info text-danger me-2"></i>
+          {{ 'posts.confirm' | translate }}
+        </div>
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">{{ 'posts.no' | translate }}</button>
+          <button type="button" class="btn btn-primary" (click)="deletePost(selectedPostId)">{{ 'posts.yes' | translate }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

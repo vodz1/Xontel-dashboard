@@ -1,0 +1,117 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="d-none d-md-block col-md-3 col-lg-2 p-0">
+        <app-sidebar>
+        </app-sidebar>
+      </div>
+      <div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="mobileSidebar">
+        <div class="offcanvas-body p-0">
+          <app-sidebar>
+          </app-sidebar>
+        </div>
+      </div>
+  
+      <main class="col-12 col-md-9 col-lg-10 p-0" style="background-color: #F5F6FA;">
+        <app-navbar></app-navbar>
+  
+        <div class="px-4">
+          <h2 class="fw-bold mb-4">{{ 'dashboard.dash' | translate }}</h2>
+  
+          <!-- KPI Cards -->
+          <div class="row g-3">
+            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+              <div class="card d-flex flex-row justify-content-between  p-2" style="border: none; height: 135px;">
+                <div>
+                  <p class="mb-1">{{ 'dashboard.Total Users' | translate }}</p>
+                  <h6 class="mb-4 fw-bold">40,689</h6>
+                  <small class="text-success">⬆️ {{ 'dashboard.userComm' | translate }}</small>
+                </div>
+                <div class="d-flex justify-content-center align-items-center rounded-circle"
+                     style="background-color: #8280FF36; width: 60px; height: 60px;">
+                     <img src="../../../assets/Group.png" alt="icon" class="img-fluid" style="width: 30px; height: 23px;">
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+              <div class="card d-flex flex-row justify-content-between  p-2" style="border: none; height: 135px;">
+                <div>
+                  <p class="mb-1">{{ 'dashboard.Total Order' | translate }}</p>
+                  <h6 class="mb-4 fw-bold">10293</h6>
+                  <small class="text-success">⬆️ {{ 'dashboard.orderComm' | translate }}</small>
+                </div>
+                <div  class="d-flex justify-content-center align-items-center rounded-circle"
+                      style="background-color: #FEC53D36; width: 60px; height: 60px;">
+                      <img src="../../../assets/box.png" alt="icon" class="img-fluid" style="width: 30px; height: 33px;">
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+              <div class="card d-flex flex-row justify-content-between  p-2" style="border: none; height: 135px;">
+                <div>
+                  <p class="mb-1">{{ 'dashboard.Total Sales' | translate }}</p>
+                  <h6 class="mb-4 fw-bold">$89,000</h6>
+                  <small class="text-danger">⬇️ {{ 'dashboard.salesComm' | translate }}</small>
+                </div>
+                <div   class="d-flex justify-content-center align-items-center rounded-circle"
+                       style="background-color: #4AD99136; width: 60px; height: 60px;">
+                       <img src="../../../assets/rate.png" alt="icon" class="img-fluid" style="width: 30px; height: 30px;">
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+              <div class="card d-flex flex-row justify-content-between  p-2" style="border: none; height: 135px;">
+                <div>
+                  <p class="mb-1">{{ 'dashboard.Total Pending' | translate }}</p>
+                  <h6 class="mb-4 fw-bold">2040</h6>
+                  <small class="text-success">⬆️ {{ 'dashboard.pendingComm' | translate }}</small>
+                </div>
+                <div   class="d-flex justify-content-center align-items-center rounded-circle"
+                       style="background-color: #FF906636; width: 60px; height: 60px;">
+                       <img src="../../../assets/timer.png" alt="icon" class="img-fluid" style="width: 27px; height: 27px;">
+               </div>
+              </div>
+            </div>
+          </div>
+  
+          <!-- Sales Details -->
+          <div class="card mt-3 p-3" style="height: 250px; border: none;">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h6 class="fw-bold">{{ 'dashboard.salesDetails' | translate }}</h6>
+              <select class="form-select form-select-sm w-auto">
+                <option>{{ 'dashboard.monthly' | translate }}</option>
+              </select>
+            </div>
+            <div style="height: 180px">
+              <canvas baseChart [data]="barChartData" [options]="barChartOptions" [type]="barChartType"></canvas>
+            </div>
+          </div>
+  
+          <!-- Analytics Section -->
+          <div class="row mt-3">
+            <!-- Customers Analytics -->
+            <div class="col-md-6">
+              <div class="card p-3" style="height: 300px; border: none; position: relative;">
+                <h6 class="fw-bold mb-3" style="font-size:22px;">{{ 'dashboard.customerAnalytics' | translate }}</h6>
+                <div style="position: relative; height: 220px;">
+                  <canvas baseChart [data]="pieChartData" [options]="pieChartOptions" [type]="pieChartType"></canvas>
+                  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                    <h5 class="fw-bold m-0">453</h5>
+                    <small class="text-muted">{{ 'dashboard.total' | translate }}</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+  
+            <!-- Sales Analytics -->
+            <div class="col-md-6">
+              <div class="card p-3" style="height: 300px; border: none;">
+                <h6 class="fw-bold mb-3" style="font-size:22px;">{{ 'dashboard.salesAnalytics' | translate }}</h6>
+                <canvas baseChart [data]="lineChartData" [type]="lineChartType"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  

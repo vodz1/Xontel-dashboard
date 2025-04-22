@@ -1,0 +1,105 @@
+.bg-blue{
+  background-color: #4880FF;
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 600;
+}
+
+.img1 {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.main-img {
+  width: 100%;
+  max-width: 300px;
+}
+
+.btn-back {
+  display: inline-block;
+  background-color: #4880FF;
+  color: white;
+  font-weight: 700;
+  font-family: 'Nunito Sans', sans-serif;
+  font-size: 13px;
+  border-radius: 8px;
+  padding: 10px 24px;
+  width: 300px;
+}
+
+.img2, .img3, .img4, .img5 {
+  position: absolute;
+}
+
+.img2 {
+  top: 60px;
+  left: 45px;
+}
+.img2 img {
+  width: 200px;
+}
+
+.img3 {
+  top: 165px;
+  left: 195px;
+}
+.img3 img {
+  width: 40px;
+}
+
+.img4 {
+  top: 150px;
+  left: 50px;
+}
+.img4 img {
+  width: 20px;
+}
+
+.img5 {
+  top: 165px;
+  left: 50px;
+}
+.img5 img {
+  width: 30px;
+}
+
+@media (max-width: 576px) {
+  .main-img {
+    max-width: 220px;
+  }
+  .img2 {
+    top: 50px;
+    left: 70px;
+  }
+  .img2 img {
+    width: 150px;
+  }
+  .img3 {
+    top: 130px;
+    left: 200px;
+  }
+  .img3 img {
+    width: 30px;
+  }
+  .img4 {
+    top: 120px;
+    left: 75px;
+  }
+  .img4 img {
+    width: 15px;
+  }
+  .img5 {
+    top: 135px;
+    left: 75px;
+  }
+  .img5 img {
+    width: 25px;
+  }
+}
+
+
+
+
+

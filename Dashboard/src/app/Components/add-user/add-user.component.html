@@ -1,0 +1,57 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="d-none d-md-block col-md-3 col-lg-2 p-0">
+        <app-sidebar></app-sidebar>
+      </div>
+      <div class="offcanvas offcanvas-start d-md-none" tabindex="-1" id="mobileSidebar">
+        <div class="offcanvas-body p-0">
+          <app-sidebar>
+          </app-sidebar>
+        </div>
+      </div>
+  
+      <main class="col-12 col-md-9 col-lg-10 p-0" style="background-color: #F5F6FA;">
+        <app-navbar></app-navbar>
+  
+        <div class="align-items-center mb-3 px-4 pt-4">
+            <h3>{{ 'posts.postsList' | translate }}<span class="text-muted">› {{ isEditMode ?  ('posts.edit' | translate) :  ('posts.add' | translate) }}  {{ 'posts.post' | translate }}</span></h3>
+          </div>
+    
+    
+              <div class="d-flex px-3 px-md-4">
+            <div class="w-100" style="max-width: 600px;">
+              <form (ngSubmit)="onSubmit()" [formGroup]="postForm">
+                <div class="mb-3">
+                  <label for="title" class="form-label">{{ 'posts.title' | translate }}</label>
+                  <input id="title" type="text" class="form-control" formControlName="title" placeholder="{{ 'posts.addTitle' | translate }}" required [(ngModel)]="post.title">
+                </div>
+    
+                <div class="mb-3">
+                  <label for="body" class="form-label">{{ 'posts.body' | translate }}</label>
+                  <textarea id="body" class="form-control" formControlName="body" rows="4" placeholder="{{ 'posts.addBody' | translate }}" required [(ngModel)]="post.body"></textarea>
+                </div>
+    
+                <div class="mb-4">
+                  <label for="userId" class="form-label">{{ 'posts.userId' | translate }}</label>
+                  <select id="userId" class="form-select mb-5" formControlName="userId" [(ngModel)]="post.userId" required>
+                    <option value="" disabled selected>{{ 'posts.assignUser' | translate }}</option>
+                    <option *ngFor="let id of userIds" [value]="id">{{ id }}</option>
+                  </select>
+                </div>
+    
+                <button type="submit" class="btn btn-primary mt-5 w-100 w-md-25">{{ 'posts.save'| translate }}</button>
+              </form>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+    
+  
+  
+  
+  
+  
+  
+  
+  

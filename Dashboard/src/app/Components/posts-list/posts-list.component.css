@@ -1,0 +1,94 @@
+.no-vertical-borders th,
+.no-vertical-borders td {
+  border-right: none !important;
+    padding-left: 1.25rem;
+    padding-top: 1.25rem;
+
+}
+
+.custom-thead th {
+  padding: 0.75rem 1.25rem;
+  background-color: #FCFDFD;
+  border-bottom: 2px solid #dee2e6;
+
+}
+
+.table-wrapper {
+  padding: 0;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+th{
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  opacity: 0.9;
+}
+h6{
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+}
+td{
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  opacity: 90%;
+}
+
+
+
+.offcanvas {
+  width: 250px;
+}
+
+@media (max-width: 768px) {
+  h6 {
+    font-size: 22px;
+  }
+  p {
+    font-size: 14px;
+  }
+  .card {
+    height: auto !important;
+  }
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .offcanvas {
+    width: 100%; 
+  }
+
+  .navbar-toggler-icon {
+    width: 30px; 
+    height: 30px;
+  }
+
+  .card {
+    height: auto !important; 
+  }
+
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .offcanvas-body {
+    padding: 0;
+  }
+  
+  .offcanvas-header {
+    padding: 0.5rem 1rem;
+  }
+}

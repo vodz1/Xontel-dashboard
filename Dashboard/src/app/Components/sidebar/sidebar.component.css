@@ -1,0 +1,16 @@
+a{
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 14px !important;
+    font-weight: 700;
+    color : black;
+    cursor:  pointer;
+}
+.active-link {
+    background-color: #4880FF;
+    color: white !important;
+    border-radius: 10px;
+
+  }
+
+  
+

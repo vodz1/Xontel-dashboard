@@ -1,0 +1,95 @@
+{
+    "login":{
+        "logAccount" : "Login to Account",
+        "paragraph" : "please enter your email and password to continue",
+        "email" : "Email address :",
+        "requireEmail" : "Email is required",
+        "wrongEmail" : "Invalid email format",    
+        "password" : "Password ",
+        "forget" : "Forgot Password ?",
+        "requirePassword" : "Password is required",
+        "rememberPassword" : "Remember Password",
+        "invalid" : "Invalid email or password",
+        "login" : "Login",
+        "haveAccount" : "Don't have an account?",
+        "createAccount" : "Create Account"
+
+
+    },
+
+    "sideBar":{
+        "dash" : "Dashboard",
+        "posts" : "Posts Lists",
+        "logout" : "Logout"
+    },
+    "navBar" : {
+        "search" : "Search",
+        "admin" : "Admin"
+    },
+    "dashboard" : {
+        "dash" : "Dashboard",
+        "Total Users" : "Total Users",
+        "userNum" : "40,689",
+        "userComm" : "8.5% Up from yesterday",
+        "Total Order" : "Total Order",
+        "orderNum" : "10293",
+        "orderComm" : "1.3% Up from past week",
+        "Total Sales" : "Total Sales",
+        "salesNum" : "$89,000",
+        "salesComm" : "4.3% Down from yesterday",
+        "Total Pending" : "Total Pending",
+        "pendingNum" : "2040",
+        "pendingComm" : "1.8% Up from yesterday",
+        "salesDetails"  : "Sales Details",
+        "monthly" : "October",
+        "customerAnalytics" : "Customers Analytics",
+        "salesAnalytics" : "Sales Analytics",
+        "total" : "Total"
+    },
+
+    "charts": {
+        "sales": "Sales",
+        "optimistic": "Optimistic",
+        "pessimistic": "Pessimistic",
+        "unsure": "Unsure"
+      },
+    "posts":{
+        "postsList" : "Posts Lists",
+        "filterby" : "Filter By",
+        "userId" : "User ID",
+        "selectId" : "Select User ID",
+        "apply" : "Apply Now",
+        "reset" : "Reset Filter",
+        "add" : "Add",
+        "id" : "ID",
+        "title" : "Title",
+        "body" : "Body",
+        "action" : "Action",
+        "pagination" : "Showing",
+        "reply" : "Reply",
+        "confirm" : "Are you sure you want to delete this Item?",
+        "yes" : "Delete",
+        "no" : "Cancel",
+        "edit" : "Edit",
+        "post" : "Post",
+        "assignUser" : "Add your User ID",
+        "addTitle" : "Add Title",
+        "addBody" : "Add Body",
+        "save" : "Save",
+        "search" : "Search"
+
+    },
+    "notFound":{
+        "lost" : " Looks like you’ve got lost….",
+        "back" : "Back to Dashboard"
+    },
+
+    "webSocket": {
+        "initialMessage": "Initial message upon connection",
+        "reply" : "Thanks for the message!"
+      },
+
+      "toast": {
+        "message": "Received Message"
+      }
+}

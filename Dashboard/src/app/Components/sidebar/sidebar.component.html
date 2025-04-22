@@ -1,0 +1,17 @@
+<div class="bg-white border-none vh-100 p-4">
+    <div class=" ms-4">
+        <span class="text-primary" style="font-family: 'Nunito Sans', sans-serif; font-weight: 800;font-size : 20px" >XonTel </span>
+        <span style="font-family: 'Nunito Sans', sans-serif; font-weight: 800; font-size :20px" >Dash</span>
+    </div>
+    <ul class="nav flex-column mt-3 ms-2 px-3 py-2">
+      <li class="nav-item mb-2">
+        <a class="nav-link" routerLink="/dashboard" routerLinkActive="active-link" (click)="closeSidebarIfMobile()" >{{ 'sideBar.dash' | translate }}</a>
+      </li>
+      <li class="nav-item mb-2">
+        <a class="nav-link" routerLink="/posts" routerLinkActive="active-link" (click)="closeSidebarIfMobile()">{{ 'sideBar.posts' | translate }}</a>
+      </li>
+      <hr>
+        <a class="nav-link text-danger" (click)="logout()">{{ 'sideBar.logout' | translate }}</a>
+    </ul>
+  </div>
+  
