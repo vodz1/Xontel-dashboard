@@ -18,8 +18,8 @@ This is a full-featured Angular 17 admin dashboard built with standalone compone
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/angular-dashboard.git
-cd angular-dashboard
+git clone https://github.com/vodz1/Xontel-dashboard.git
+cd Dashboard
 ```
 
 ### 2. Install dependencies
